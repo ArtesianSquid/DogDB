@@ -1,0 +1,90 @@
+.error{
+        color: red;
+        font-size: smaller;
+    }
+#header{
+    background-color: lightgray;
+    padding: 40px;
+    font-size: large;
+    font-weight: bold;
+}
+.dogimage{
+    width: 100%; 
+    height: auto;
+}
+#title{
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.input{
+    width : 300px;
+}
+.home_image{
+    height: 300px;
+    width: 300px;
+    margin-top: 10px;
+}
+#hypo{
+    height: 30px;
+    width: 30px;
+}
+div.polaroid {
+    width: 95%;
+    background-color: #c4d6e1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+div.frontcontainer {
+    padding: 10px 20px;
+    color: #184783;
+}
+
+.attributes{
+    color: #184783;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.value{
+    color: black
+}
+
+.description{
+    color: black;
+    margin-top: 20px; 
+}
+
+.navbar-custom {
+    background-color: #c4d6e1;
+}
+
+.right{
+    margin-left: auto;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #184783;
+}
+
+.editButton{
+    background-color: #ECEFF1;
+}
+
+.welcomeText{
+    font-size: 30px;
+    text-align: center;   
+}
+
+.subtext{
+    font-size: 25px;
+    color: #36342e;
+}
+
+.input{
+    width : 300px;
+}
