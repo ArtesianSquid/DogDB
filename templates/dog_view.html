@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script>
+    $(document).ready(function(){
+        if("{{dog.hypoallergenic}}"==="Yes"){
+            document.getElementById("hypo").src="https://static.vecteezy.com/system/resources/previews/002/743/514/large_2x/green-check-mark-icon-in-a-circle-free-vector.jpg"
+        } else {
+            document.getElementById("hypo").src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flat_cross_icon.svg/1200px-Flat_cross_icon.svg.png"
+        }
+        
+        $("#edit").click(function(){
+            location.href = "/edit/" + "{{dog.id}}"
+        })
+
+    })
+</script>
+
+<div id="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="title">
+                {{dog.name}}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <img src="{{dog.image}}" class="dogimage img-fluid" alt="Picture of a {{dog.name}}">
+        </div>
+        <div class="col-md-4">
+            <div class="attributes">
+                Hypoallergenic? 
+                <img src="" id="hypo">
+            </div>
+            <div class="attributes">
+                Height: <span class="value"> {{dog.height}} inches</span>
+            </div>
+            <div class="attributes">
+                Weight: <span class="value"> {{dog.weight}} pounds</span>
+            </div>
+            <div class="attributes">
+                Life Expectancy: <span class="value"> {{dog.life_expectancy}} years</span>
+            </div>
+            <div class="attributes">
+                Breed Group: <span class="value"> <a href="/search_results?search={{dog.group}}">{{dog.group}}</a></span>
+            </div>
+            <div class="attributes">
+                Personality Traits: <span class="value"> 
+                    <ul>
+                        {% for trait in dog.personality %}
+                            <li>{{trait}}</li>
+                        {% endfor %}
+                    </ul>
+                </span>
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <div class="row">
+        <div class="attributes">
+             <span class="description"> {{dog.about}}</span>
+        </div>
+        <button id="edit" class="btn editButton">Edit</button><br>
+    </div>
+</div>
+
+{% endblock %}
+
+

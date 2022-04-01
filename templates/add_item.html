@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'add_item.js') }}"></script>
+
+<div id="container">
+        <div id="return_link"></div>
+    
+        <br>
+        <div>
+            <label>Breed Name:</label> <br>
+            <input type="text" id="name_box" class="input" placeholder="Name">
+            <span id="name_error" class="error"></span> <br><br>
+        </div>
+        <div>
+            <label>Image:</label> <br>
+            <input type="text" id="image_box" class="input" placeholder="Image Link">
+            <span id="image_error" class="error"></span> <br><br>
+        </div>
+        <div>
+            <label>Hypoallergenic?:</label> <br>
+            <input type="text" id="hypo_box" class="input" placeholder="Yes/No">
+            <span id="hypo_error" class="error"></span> <br><br>
+        </div>
+        <div>
+            <label>About:</label> <br>
+            <input type="text" id="about_box" class="input" placeholder="Description of the Breed">
+            <span id="about_error" class="error"></span> <br><br>
+        </div>
+
+        <div>
+            <label>Height:</label> <br>
+            <input type="number" id="height_box" class="input" placeholder="In Inches">
+            <span id="height_error" class="error"></span> <br><br>
+        </div>
+
+        <div>
+            <label>Weight:</label> <br>
+            <input type="number" id="weight_box" class="input" placeholder="In Pounds">
+            <span id="weight_error" class="error"></span> <br><br>
+        </div>
+
+        <div>
+            <label>Life Expectancy:</label> <br>
+            <input type="number" id="lifeExp_box" class="input" placeholder="In Years">
+            <span id="life_error" class="error"></span> <br><br>
+        </div>
+
+        <div>
+            <label>Personality:</label> <br>
+            <input type="text" id="personality_box" class="input" placeholder="List Traits, Separated with Commas">
+            <span id="personality_error" class="error"></span> <br><br>
+        </div>
+
+        <div>
+            <label>Breed Group:</label> <br>
+            <input type="text" id="group_box" class="input" placeholder="Breed Group">
+            <span id="group_error" class="error"></span> <br><br>
+        </div>
+
+        <div>
+            <button id="submit_entry" class="btn editButton">Submit</button><br>
+        </div>
+
+</div>
+
+{% endblock %}
+
+

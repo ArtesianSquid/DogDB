@@ -1,0 +1,139 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'edit_item.js') }}"></script>
+<script>
+     $(document).ready(function(){
+        // Submit button event listener
+        $("#submit_entry").click(function(){ 
+            
+            if ($("#name_box").val()==0){
+                document.getElementById("name_error").innerHTML = "No Breed Name"
+                $("#client_box").val("")
+                document.getElementById("name_box").focus();
+            return
+            }
+
+            let id = {{dog.id}};
+            let name = $.trim($("#name_box").val())
+            console.log(name)
+            let image = $.trim($("#image_box").val())
+            let hypoallergenic = $.trim($("#hypo_box").val())
+            let height = $.trim($("#height_box").val())
+            let weight = $.trim($("#weight_box").val())
+            let life_expectancy = $.trim($("#lifeExp_box").val())
+            let about = $.trim($("#about_box").val())
+            let personality = $.trim($("#personality_box").val()).slice(1,-1).replaceAll("'","")
+            //let personality = $.trim($("#personality_box").val())
+            let group = $.trim($("#group_box").val())
+            let data_to_save = {
+                "id": id.toString(),
+                "name": name,
+                "image": image,
+                "hypoallergenic": hypoallergenic,
+                "height": height,
+                "weight": weight,
+                "life_expectancy": life_expectancy,
+                "about": about,
+                "personality": personality,
+                "group": group
+            }
+            console.log(data_to_save)
+            edit_doggo(data_to_save)
+            location.href = "/view/" + id
+        })
+
+        $("#discard_entry").click(function(){ 
+            $( "#dialog-confirm" ).dialog({
+                resizable: false,
+                height: "auto",
+                width: 400,
+                modal: true,
+                buttons: {
+                    "Yes": function() {
+                        $( this ).dialog( "close" );
+                        location.href = "/view/" + {{dog.id}}
+                    },
+                    "No": function() {
+                        $( this ).dialog( "close" );
+                    }
+                } 
+            });
+        } );
+        
+
+    })
+</script>
+
+
+<div id="container">
+        <div id="return_link"></div>
+        <br>
+        <div>
+            <label>Breed Name:</label> <br>
+            <input type="text" id="name_box" class="input" value="{{dog.name}}" placeholder="Name">
+            <span id="name_error" class="error"></span> <br><br>
+        </div>
+        <div>
+            <label>Image:</label> <br>
+            <input type="text" id="image_box" class="input" value="{{dog.image}}" placeholder="Image Link">
+            <span id="image_error" class="error"></span> <br><br>
+        </div>
+        <div>
+            <label>Hypoallergenic?:</label> <br>
+            <input type="text" id="hypo_box" class="input" value="{{dog.hypoallergenic}}" placeholder="Yes/No">
+            <span id="ream_error" class="error"></span> <br><br>
+        </div>
+        <div>
+            <label>About:</label> <br>
+            <input type="text" id="about_box" class="input" value="{{dog.about}}" placeholder="Description of the Breed">
+            <span id="about_error" class="error"></span> <br><br>
+        </div>
+
+        <div>
+            <label>Height:</label> <br>
+            <input type="number" id="height_box" class="input" value="{{dog.height}}" placeholder="In Inches">
+            <span id="height_error" class="error"></span> <br><br>
+        </div>
+
+        <div>
+            <label>Weight:</label> <br>
+            <input type="number" id="weight_box" class="input" value="{{dog.weight}}" placeholder="In Pounds">
+            <span id="weight_error" class="error"></span> <br><br>
+        </div>
+
+        <div>
+            <label>Life Expectancy:</label> <br>
+            <input type="number" id="lifeExp_box" class="input" value="{{dog.life_expectancy}}" placeholder="In Years">
+            <span id="life_error" class="error"></span> <br><br>
+        </div>
+
+        <div>
+            <label>Personality:</label> <br>
+            <input type="text" id="personality_box" class="input" value="{{dog.personality}}" placeholder="List Traits, Separated with Commas">
+            <span id="personality_error" class="error"></span> <br><br>
+        </div>
+
+        <div>
+            <label>Breed Group:</label> <br>
+            <input type="text" id="group_box" class="input" value="{{dog.group}}" placeholder="Breed Group">
+            <span id="group_error" class="error"></span> <br><br>
+        </div>
+
+        <div>
+            <button id="submit_entry" class="btn editButton">Submit</button><br><br>
+        </div>
+
+        <div>
+            <button id="discard_entry" class="btn editButton">Discard Changes</button><br>
+        </div>
+
+        <div id="dialog-confirm" title="Discard All Changes?">
+            <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>Are you sure you want to discard the changes you've made?</p>
+        </div>
+
+</div>
+
+{% endblock %}
+
+
